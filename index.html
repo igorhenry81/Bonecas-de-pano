@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curso Bonecas de Pano – Aprenda do zero, sem máquina de costura</title>
+<meta name="description" content="Mais de 70 videoaulas para aprender a fazer bonecas de pano do zero, à mão, sem máquina de costura. Moldes prontos, certificado e garantia de 30 dias.">
+<meta property="og:title" content="Curso Bonecas de Pano">
+<meta property="og:description" content="Aprenda a fazer bonecas de pano do zero e transforme em renda extra. Mais de 70 videoaulas.">
+<meta property="og:image" content="img/hero.webp">
+<meta name="theme-color" content="#b8475a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Pixel do Facebook (mesmo ID da página atual) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1600694537415322');fbq('track','PageView');
+</script>
+
+<script>
+/* Imagens: usa a pasta img/ do projeto; se ainda não existir, puxa do site antigo */
+var OLD='https://bonecasdepano.com.br/wp-content/uploads/';
+function fb(i){i.onerror=null;i.src=OLD+i.dataset.fb;}
+</script>
+
+<style>
+:root{
+  --rosa:#b8475a; --rosa-esc:#8f3343; --rosa-claro:#fbe9ec;
+  --creme:#fdf8f3; --papel:#fffdf9; --tinta:#3b2a2a; --suave:#7a6463;
+  --verde:#2f9e5b; --verde-esc:#237a46; --linha:#ead9d3; --ouro:#e7a83a;
+  --raio:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Nunito,system-ui,sans-serif;color:var(--tinta);background:var(--creme);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;letter-spacing:-.01em}
+h2{font-size:clamp(1.7rem,4.5vw,2.5rem);text-align:center;margin-bottom:.6rem}
+.sub{color:var(--suave);text-align:center;max-width:620px;margin:0 auto 2.2rem}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.alt{background:var(--papel);border-top:1px dashed var(--linha);border-bottom:1px dashed var(--linha)}
+.tag{display:inline-block;background:var(--rosa-claro);color:var(--rosa-esc);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:99px;margin-bottom:14px}
+.center{text-align:center}
+
+/* Botão */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--verde);color:#fff;font-weight:800;font-size:1.08rem;text-decoration:none;padding:18px 34px;border-radius:99px;border:0;cursor:pointer;box-shadow:0 6px 0 var(--verde-esc),0 10px 24px rgba(47,158,91,.3);transition:transform .15s,box-shadow .15s;text-transform:uppercase;letter-spacing:.02em;text-align:center}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--verde-esc)}
+.btn.full{width:100%}
+.btn.ghost{background:#fff;color:var(--tinta);box-shadow:0 4px 0 var(--linha);border:2px solid var(--linha);font-size:.95rem}
+.seguro{font-size:.85rem;color:var(--suave);margin-top:12px}
+
+/* Faixa topo */
+.faixa{background:var(--rosa);color:#fff;text-align:center;font-weight:700;font-size:.9rem;padding:9px 12px}
+
+/* Hero */
+.hero{padding:48px 0 64px;background:radial-gradient(circle at 85% 10%,#f7d9de 0,transparent 45%),var(--creme)}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(2.1rem,5.4vw,3.4rem);margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--rosa)}
+.hero p.lead{font-size:1.15rem;color:var(--suave);margin-bottom:22px}
+.checks{list-style:none;display:grid;gap:10px;margin-bottom:28px}
+.checks li{display:flex;gap:10px;align-items:flex-start;font-weight:700}
+.checks li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:var(--verde);color:#fff;display:grid;place-items:center;font-size:.8rem;margin-top:2px}
+.hero-img{position:relative}
+.hero-img img{width:100%;height:auto;border-radius:24px;box-shadow:0 20px 50px rgba(120,50,60,.18)}
+.selo-aulas{position:absolute;right:-12px;top:-14px;background:#fff;border-radius:16px;padding:12px 18px;box-shadow:0 10px 30px rgba(0,0,0,.12);font-weight:800;transform:rotate(3deg)}
+.selo-aulas b{display:block;font-family:Fraunces,serif;font-size:1.8rem;color:var(--rosa);line-height:1}
+
+/* Faixa de números */
+.numeros{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-30px;position:relative;z-index:2}
+.numeros div{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:18px 10px;text-align:center;font-weight:700;font-size:.9rem;color:var(--suave)}
+.numeros b{display:block;font-family:Fraunces,serif;font-size:1.6rem;color:var(--tinta)}
+
+/* Galerias */
+.galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.galeria img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--raio);background:#f1e6e1;cursor:zoom-in;transition:transform .2s}
+.galeria img:hover{transform:scale(1.02)}
+.galeria.alta img{aspect-ratio:4/5}
+
+/* Moldes */
+.moldes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.molde{background:#fff;border:2px dashed #e3c6c0;border-radius:var(--raio);padding:26px 22px;position:relative}
+.molde .ic{font-size:1.9rem;margin-bottom:8px}
+.molde h3{font-size:1.15rem;margin-bottom:6px}
+.molde p{color:var(--suave);font-size:.95rem}
+
+/* Para quem */
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:#fff;border:1px solid var(--linha);border-radius:22px;padding:28px}
+.card h3{margin-bottom:14px;font-size:1.3rem}
+.lista{list-style:none;display:grid;gap:10px}
+.lista li{padding-left:30px;position:relative}
+.lista li::before{content:"✓";position:absolute;left:0;top:1px;color:var(--verde);font-weight:900}
+.lista.nao li::before{content:"✕";color:#c4504a}
+
+/* Você vai levar */
+.stack{max-width:680px;margin:0 auto;background:#fff;border-radius:24px;border:1px solid var(--linha);overflow:hidden;box-shadow:0 14px 40px rgba(120,50,60,.08)}
+.stack-row{display:flex;justify-content:space-between;gap:12px;padding:15px 24px;border-bottom:1px dashed var(--linha)}
+.stack-row span:first-child::before{content:"🎁 ";}
+.stack-row .v{color:var(--suave);text-decoration:line-through;white-space:nowrap}
+.stack-row .gratis{color:var(--verde);font-weight:800;text-decoration:none}
+.stack-total{padding:22px 24px;background:var(--rosa-claro);text-align:center}
+.stack-total .de{color:var(--suave)}
+.stack-total .de s{font-weight:700}
+.stack-total .por{font-family:Fraunces,serif;font-size:2.2rem;color:var(--rosa-esc)}
+
+/* Certificado e professora */
+.prof{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center}
+.prof img{border-radius:50%;aspect-ratio:1;object-fit:cover;border:8px solid #fff;box-shadow:0 14px 40px rgba(120,50,60,.15);max-width:340px;margin:0 auto}
+.prof h2{text-align:left}
+.cert{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.cert img{border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.12);transform:rotate(-1.5deg);cursor:zoom-in}
+.cert h2{text-align:left}
+
+/* Depoimentos */
+.depos{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.depos img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top;border-radius:16px;border:1px solid var(--linha);cursor:zoom-in;background:#f1e6e1}
+
+/* Planos */
+.planos{display:grid;grid-template-columns:1fr 1.12fr;gap:24px;max-width:860px;margin:0 auto;align-items:center}
+.plano{background:#fff;border:2px solid var(--linha);border-radius:26px;padding:30px 26px;text-align:center}
+.plano h3{font-size:1.4rem}
+.plano .preco{font-family:Fraunces,serif;font-size:3rem;line-height:1;margin:14px 0 4px}
+.plano .preco small{font-size:1.1rem;vertical-align:super}
+.plano .riscado{color:var(--suave);font-size:.95rem}
+.plano ul{list-style:none;text-align:left;margin:20px 0 24px;display:grid;gap:9px;font-size:.96rem}
+.plano li.sim::before{content:"✓ ";color:var(--verde);font-weight:900}
+.plano li.nao{color:#a99}
+.plano li.nao::before{content:"✕ ";color:#c4504a;font-weight:900}
+.plano.top{border:3px solid var(--rosa);box-shadow:0 20px 50px rgba(184,71,90,.2);position:relative;padding-top:42px}
+.plano.top .fita{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--rosa);color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;padding:7px 18px;border-radius:99px;white-space:nowrap}
+.plano.top .preco{color:var(--rosa-esc);font-size:3.6rem}
+.pag{display:flex;justify-content:center;gap:18px;margin-top:22px;color:var(--suave);font-size:.9rem;font-weight:700;flex-wrap:wrap}
+
+/* Garantia */
+.garantia{display:flex;gap:30px;align-items:center;max-width:780px;margin:0 auto;background:#fff;border:2px solid var(--linha);border-radius:26px;padding:30px}
+.garantia img{width:140px;flex:none}
+.garantia h2{text-align:left;font-size:1.7rem}
+
+/* FAQ */
+.faq{max-width:760px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:0 22px}
+.faq summary{cursor:pointer;font-weight:800;padding:18px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.4rem;color:var(--rosa);line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 18px;color:var(--suave)}
+
+/* Final */
+.final{background:var(--rosa);color:#fff;text-align:center}
+.final h2{color:#fff}
+.final p{opacity:.9;max-width:560px;margin:0 auto 26px}
+footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.85rem}
+
+/* CTA fixo no celular */
+.fixo{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,253,249,.96);backdrop-filter:blur(6px);border-top:1px solid var(--linha);display:none;z-index:40;transform:translateY(110%);transition:transform .25s}
+.fixo.on{transform:none}
+.fixo .btn{width:100%;padding:15px;font-size:1rem}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;background:rgba(20,10,10,.88);display:none;align-items:center;justify-content:center;z-index:60;padding:20px;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-height:90vh;border-radius:12px}
+
+/* Popup do Básico */
+.modal{position:fixed;inset:0;background:rgba(30,15,15,.6);display:none;align-items:center;justify-content:center;z-index:70;padding:16px}
+.modal.on{display:flex}
+.caixa{background:#fff;border-radius:24px;max-width:420px;width:100%;padding:28px 24px;text-align:center;position:relative;animation:sobe .25s ease}
+@keyframes sobe{from{transform:translateY(20px);opacity:0}}
+.caixa .x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:1.6rem;color:#aaa;cursor:pointer}
+.caixa .alerta{background:#fff3e0;color:#b4610a;font-weight:800;font-size:.8rem;border-radius:99px;display:inline-block;padding:6px 14px;margin-bottom:10px}
+.caixa h3{font-size:1.5rem;margin-bottom:8px}
+.caixa .tempo{font-family:Fraunces,serif;font-size:2rem;color:var(--rosa);margin:4px 0 14px}
+.caixa ul{list-style:none;text-align:left;background:#fdf1f0;border-radius:14px;padding:14px 18px;margin-bottom:18px;display:grid;gap:6px;font-weight:700}
+.caixa .preco2{margin:8px 0 14px}
+.caixa .preco2 s{color:var(--suave)}
+.caixa .preco2 b{font-family:Fraunces,serif;font-size:2.2rem;color:var(--verde-esc);display:block;line-height:1.1}
+.caixa .ou{color:var(--suave);font-size:.85rem;margin:12px 0}
+.caixa a.cont{color:var(--suave);font-size:.9rem;font-weight:700}
+
+@media (max-width:860px){
+  section{padding:56px 0}
+  .hero .grid,.prof,.cert,.duas,.planos{grid-template-columns:1fr}
+  .hero-img{order:-1;max-width:460px;margin:0 auto}
+  .numeros{grid-template-columns:repeat(2,1fr);margin-top:0}
+  .galeria{grid-template-columns:repeat(2,1fr)}
+  .moldes{grid-template-columns:1fr}
+  .depos{grid-template-columns:repeat(5,70%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+  .depos img{scroll-snap-align:center}
+  .prof h2,.cert h2,.garantia h2{text-align:center}
+  .prof,.cert{text-align:center}
+  .garantia{flex-direction:column;text-align:center}
+  .fixo{display:block}
+  .btn{width:100%;padding:17px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="faixa">🎉 Oferta especial de hoje · Acesso imediato após a compra</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="tag">Curso Bonecas de Pano</span>
+      <h1>Aprenda a fazer <em>bonecas de pano</em> com o método que vai te levar a faturar de R$ 3 a 4 mil por mês</h1>
+      <p class="lead">O passo a passo completo, em vídeo, para você criar bonecas lindas com as próprias mãos — mesmo que nunca tenha costurado na vida.</p>
+      <ul class="checks">
+        <li>Mais de 70 videoaulas, do básico ao acabamento</li>
+        <li>Tudo costurado à mão — não precisa de máquina</li>
+        <li>100 moldes prontos para imprimir</li>
+        <li>Certificado de conclusão</li>
+      </ul>
+      <a href="#planos" class="btn">Quero aprender agora →</a>
+      <p class="seguro">🔒 Compra segura · Cartão ou PIX · Garantia de 30 dias</p>
+    </div>
+    <div class="hero-img">
+      <img src="img/hero.webp" data-fb="2026/09/ChatGPT-Image-8-de-set.-de-2026_-15_58_44-1-1024x827.webp" onerror="fb(this)" alt="Bonecas de pano feitas no curso" width="1024" height="827" fetchpriority="high">
+      <div class="selo-aulas"><b>+70</b>videoaulas</div>
+    </div>
+  </div>
+</header>
+
+<!-- GALERIA -->
+<section>
+  <div class="wrap">
+    <h2>Bonecas que você vai aprender a fazer</h2>
+    <p class="sub">Peças delicadas, cheias de detalhes, que encantam quem vê — e que vendem muito bem.</p>
+    <div class="galeria">
+      <img src="img/boneca-1.webp" data-fb="2026/03/2-1024x1024.webp" onerror="fb(this)" alt="Boneca de pano" loading="lazy">
+      <img src="img/boneca-2.webp" data-fb="2026/03/Design-sem-nome-_5_-1-975x1024.webp" onerror="fb(this)" alt="Boneca de pano" loading="lazy">
+      <img src="img/boneca-3.webp" data-fb="2026/03/Design-sem-nome-_3_-3-975x1024.webp" onerror="fb(this)" alt="Boneca de pano" loading="lazy">
+      <img src="img/boneca-4.webp" data-fb="2026/03/1-975x1024.webp" onerror="fb(this)" alt="Boneca de pano" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ROUPINHAS -->
+<section class="alt">
+  <div class="wrap">
+    <span class="tag" style="display:table;margin:0 auto 14px">Também incluso</span>
+    <h2>Roupinhas e sapatinhos</h2>
+    <p class="sub">Você aprende a vestir cada boneca do jeitinho que imaginar: vestidos, macacões, sapatinhos e acessórios.</p>
+    <div class="galeria">
+      <img src="img/roupa-1.png" data-fb="2026/05/ChatGPT-Image-19-de-mai.-de-2026-15_54_10-1024x1024.png" onerror="fb(this)" alt="Roupinha de boneca" loading="lazy">
+      <img src="img/roupa-2.png" data-fb="2026/05/ChatGPT-Image-19-de-mai.-de-2026-15_57_51-1024x1024.png" onerror="fb(this)" alt="Roupinha de boneca" loading="lazy">
+      <img src="img/roupa-3.png" data-fb="2026/05/ChatGPT-Image-19-de-mai.-de-2026-16_03_58-1024x1024.png" onerror="fb(this)" alt="Sapatinho de boneca" loading="lazy">
+      <img src="img/roupa-4.png" data-fb="2026/05/ChatGPT-Image-19-de-mai.-de-2026-16_06_20-1024x1024.png" onerror="fb(this)" alt="Sapatinho de boneca" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- MOLDES -->
+<section>
+  <div class="wrap">
+    <h2>100 moldes prontos para você imprimir</h2>
+    <p class="sub">Nada de desenhar do zero. É só imprimir, recortar e começar.</p>
+    <div class="moldes">
+      <div class="molde"><div class="ic">🖨️</div><h3>Imprima em casa</h3><p>Moldes em tamanho real, prontos para imprimir em folha A4 comum.</p></div>
+      <div class="molde"><div class="ic">✂️</div><h3>Corpo, rosto e cabelo</h3><p>Todas as partes da boneca, com marcações de costura e encaixe.</p></div>
+      <div class="molde"><div class="ic">👗</div><h3>Roupas e acessórios</h3><p>Moldes das roupinhas e sapatinhos para montar coleções completas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BÔNUS AMIGURUMI -->
+<section class="alt">
+  <div class="wrap">
+    <span class="tag" style="display:table;margin:0 auto 14px">🎁 Bônus</span>
+    <h2>Mini curso de Amigurumi</h2>
+    <p class="sub">Uma segunda técnica para aumentar seu catálogo e vender ainda mais: bonequinhos de crochê fofos e muito procurados.</p>
+    <div class="galeria alta">
+      <img src="img/amigurumi-1.webp" data-fb="2026/03/01-Photoroom-819x1024-1.webp" onerror="fb(this)" alt="Amigurumi" loading="lazy">
+      <img src="img/amigurumi-2.webp" data-fb="2026/03/02-819x1024-1.webp" onerror="fb(this)" alt="Amigurumi" loading="lazy">
+      <img src="img/amigurumi-3.webp" data-fb="2026/03/Design-sem-nome-Photoroom-819x1024-1.webp" onerror="fb(this)" alt="Amigurumi" loading="lazy">
+      <img src="img/amigurumi-4.webp" data-fb="2026/03/Merhabalar__littlemiracles_kawaii-icin-tasarladigim-karakter-bebegim-FRIEREN-Begenilerinize-su-Photo-819x1024-1.webp" onerror="fb(this)" alt="Amigurumi" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICADO -->
+<section>
+  <div class="wrap cert">
+    <div>
+      <span class="tag">Certificado</span>
+      <h2>Certificado de conclusão</h2>
+      <p style="color:var(--suave);margin-bottom:10px">O curso foi pensado para quem está começando do zero: sem experiência e sem máquina de costura, tudo é feito à mão.</p>
+      <p style="color:var(--suave)">Ao terminar o curso, você baixa seu certificado direto na plataforma. Ideal para mostrar às clientes que você se especializou.</p>
+    </div>
+    <img src="img/certificado.webp" data-fb="2026/03/WhatsApp-Image-2025-07-19-at-19.21.35.jpeg.webp" onerror="fb(this)" alt="Certificado do curso" loading="lazy">
+  </div>
+</section>
+
+<!-- PROFESSORA -->
+<section class="alt">
+  <div class="wrap prof">
+    <img src="img/professora.png" data-fb="2026/05/ChatGPT-Image-18-de-mai.-de-2026-17_15_42-300x300.png" onerror="fb(this)" alt="Professora do curso" loading="lazy">
+    <div>
+      <span class="tag">Sua professora</span>
+      <h2>Aprenda com uma das melhores artesãs do Brasil, sem sair de casa</h2>
+      <p style="color:var(--suave)">Anos de experiência criando e vendendo bonecas de pano, agora reunidos em um método simples, explicado com calma e mostrado de perto em cada etapa. Você assiste quantas vezes quiser e conta com suporte sempre que tiver dúvida.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section>
+  <div class="wrap">
+    <h2>O que as alunas estão dizendo</h2>
+    <p class="sub">Mensagens reais de quem já está fazendo as próprias bonecas. Toque para ampliar.</p>
+    <div class="depos">
+      <img src="img/depo-1.jpeg" data-fb="2026/05/WhatsApp-Image-2026-05-12-at-00.55.54-472x1024.jpeg" onerror="fb(this)" alt="Depoimento de aluna" loading="lazy">
+      <img src="img/depo-2.webp" data-fb="2026/03/WhatsApp-Image-2025-07-19-at-18.43.27.jpeg.webp" onerror="fb(this)" alt="Depoimento de aluna" loading="lazy">
+      <img src="img/depo-3.jpeg" data-fb="2026/03/WhatsApp-Image-2025-12-31-at-16.18.45-473x1024.jpeg" onerror="fb(this)" alt="Depoimento de aluna" loading="lazy">
+      <img src="img/depo-4.webp" data-fb="2026/03/Design-sem-nome-_4_.webp" onerror="fb(this)" alt="Depoimento de aluna" loading="lazy">
+      <img src="img/depo-5.webp" data-fb="2026/06/WhatsApp-Image-2026-06-06-at-23.23.49-473x1024.webp" onerror="fb(this)" alt="Depoimento de aluna" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="alt" id="planos">
+  <div class="wrap">
+    <h2>Escolha seu plano</h2>
+    <p class="sub">Pagamento único. Acesso liberado no seu e-mail logo após a compra.</p>
+    <div class="planos">
+      <div class="plano">
+        <h3>Plano Básico</h3>
+        <div class="preco"><small>R$</small>10</div>
+        <div class="riscado">pagamento único</div>
+        <ul>
+          <li class="sim">Curso Bonecas de Pano (+70 aulas)</li>
+          <li class="sim">Certificado de conclusão</li>
+          <li class="nao">100 moldes exclusivos</li>
+          <li class="nao">Atualizações com novas aulas</li>
+          <li class="nao">Materiais extras e bônus</li>
+          <li class="nao">Acesso vitalício</li>
+        </ul>
+        <button class="btn ghost full" id="btnBasico" type="button">Quero o Básico</button>
+      </div>
+      <div class="plano top">
+        <div class="fita">⭐ MAIS ESCOLHIDO</div>
+        <h3>Plano Completo Vitalício</h3>
+        <div class="riscado">de <s>R$ 299</s> por</div>
+        <div class="preco"><small>R$</small>37</div>
+        <div class="riscado">pagamento único</div>
+        <ul>
+          <li class="sim">Curso Bonecas de Pano (+70 aulas)</li>
+          <li class="sim">Certificado de conclusão</li>
+          <li class="sim"><b>Acesso vitalício</b></li>
+          <li class="sim">100 moldes exclusivos</li>
+          <li class="sim">Atualizações com novas aulas</li>
+          <li class="sim">Suporte VIP no WhatsApp + Grupo VIP</li>
+          <li class="sim">Bônus: Mini curso de Amigurumi</li>
+          <li class="sim">Bônus: Planner + Vovô Gnomo + Fornecedores</li>
+        </ul>
+        <a class="btn full ck" data-v="37" href="https://pay.kirvano.com/dad8aac4-d567-4c05-9198-59341f856875">Quero o Completo →</a>
+      </div>
+    </div>
+    <div class="pag"><span>💳 Cartão de crédito</span><span>⚡ PIX</span><span>🔒 Compra 100% segura</span></div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section>
+  <div class="wrap">
+    <div class="garantia">
+      <img src="img/selo.webp" data-fb="2026/05/selo-de-qualidade-300x300.webp" onerror="fb(this)" alt="Selo de garantia de 30 dias" loading="lazy">
+      <div>
+        <h2>Garantia incondicional de 30 dias</h2>
+        <p style="color:var(--suave)">Entre no curso, assista às aulas e faça suas primeiras bonecas. Se por qualquer motivo não gostar, é só pedir o reembolso em até 30 dias e você recebe 100% do seu dinheiro de volta. Sem perguntas. O risco é todo nosso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt">
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+    <p class="sub">Ainda com dúvida? Veja as respostas abaixo.</p>
+    <div class="faq">
+      <details><summary>Como funciona o curso?</summary><p>É 100% online, com videoaulas que você assiste pelo celular, tablet ou computador, no seu ritmo e quantas vezes quiser.</p></details>
+      <details><summary>Como recebo o acesso?</summary><p>Logo após a confirmação do pagamento, você recebe no seu e-mail o login e a senha da plataforma. Se tiver qualquer dificuldade, nosso suporte te ajuda.</p></details>
+      <details><summary>Preciso de máquina de costura?</summary><p>Não! Todas as bonecas são costuradas à mão, com pontos simples que você aprende nas aulas.</p></details>
+      <details><summary>Nunca costurei. Vou conseguir?</summary><p>Sim. O curso foi feito para iniciantes, sem nenhuma experiência com costura ou bonecas. Tudo é explicado do zero.</p></details>
+      <details><summary>Por quanto tempo terei acesso?</summary><p>No Plano Completo o acesso é vitalício: você pode voltar às aulas sempre que quiser e ainda recebe as novas aulas que forem adicionadas.</p></details>
+      <details><summary>Quais as formas de pagamento?</summary><p>Cartão de crédito e PIX. Com PIX, o acesso é liberado em poucos minutos.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="ano"></span> Curso Bonecas de Pano · Todos os direitos reservados</footer>
+
+<div class="fixo" id="fixo"><a href="#planos" class="btn">Quero aprender · a partir de R$ 10</a></div>
+
+<div class="lb" id="lb"><img alt=""></div>
+
+<!-- Popup ao escolher o Básico -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitulo">
+  <div class="caixa">
+    <button class="x" type="button" aria-label="Fechar" id="mFechar">×</button>
+    <div class="alerta">🔥 OFERTA LIMITADA · SOMENTE AGORA</div>
+    <h3 id="mTitulo">Espere! Antes de continuar…</h3>
+    <div style="color:var(--suave);font-size:.9rem">⚠️ Essa condição especial expira em:</div>
+    <div class="tempo" id="tempo">05:00</div>
+    <ul>
+      <li>❌ O Básico não inclui os moldes</li>
+      <li>❌ Nem as novas atualizações</li>
+      <li>❌ Nem os materiais extras e bônus</li>
+    </ul>
+    <div>Tenha <b>tudo incluso + acesso vitalício</b></div>
+    <div class="preco2">de <s>R$ 37</s> por apenas <b>R$ 27</b></div>
+    <a class="btn full ck" data-v="27" href="https://pay.kirvano.com/8319d1a3-9c57-474d-9250-d591d93b34b5">Quero o Completo (R$ 27)</a>
+    <div class="ou">ou</div>
+    <a class="cont ck" data-v="10" href="https://pay.kirvano.com/a374ddce-db29-4779-b961-b2ea7ff1499c">Continuar no Básico (R$ 10)</a>
+  </div>
+</div>
+
+<script>
+document.getElementById('ano').textContent=new Date().getFullYear();
+
+/* Leva os parâmetros UTM do anúncio para o checkout */
+var q=location.search.slice(1);
+document.querySelectorAll('a.ck').forEach(function(a){
+  if(q) a.href+=(a.href.indexOf('?')>-1?'&':'?')+q;
+  a.addEventListener('click',function(){
+    try{fbq('track','InitiateCheckout',{value:+a.dataset.v,currency:'BRL'})}catch(e){}
+  });
+});
+
+/* Popup ao clicar no Básico */
+var modal=document.getElementById('modal'),timer;
+function abrir(){
+  modal.classList.add('on');
+  var s=300,el=document.getElementById('tempo');
+  clearInterval(timer);
+  timer=setInterval(function(){
+    s=Math.max(0,s-1);
+    el.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+    if(!s)clearInterval(timer);
+  },1000);
+}
+function fechar(){modal.classList.remove('on');clearInterval(timer)}
+document.getElementById('btnBasico').addEventListener('click',abrir);
+document.getElementById('mFechar').addEventListener('click',fechar);
+modal.addEventListener('click',function(e){if(e.target===modal)fechar()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){fechar();lb.classList.remove('on')}});
+
+/* Ampliar fotos */
+var lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+document.querySelectorAll('.galeria img,.depos img,.cert img').forEach(function(i){
+  i.addEventListener('click',function(){lbi.src=i.currentSrc||i.src;lb.classList.add('on')});
+});
+lb.addEventListener('click',function(){lb.classList.remove('on')});
+
+/* Botão fixo no celular: aparece depois do topo e some na seção de planos */
+var fixo=document.getElementById('fixo'),planos=document.getElementById('planos');
+function rolar(){
+  var r=planos.getBoundingClientRect();
+  var naPlanos=r.top<innerHeight&&r.bottom>0;
+  fixo.classList.toggle('on',scrollY>600&&!naPlanos);
+}
+addEventListener('scroll',rolar,{passive:true});rolar();
+</script>
+</body>
+</html>
