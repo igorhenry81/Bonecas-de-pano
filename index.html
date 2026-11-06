@@ -81,6 +81,9 @@ section{padding:72px 0}
 .galeria img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--raio);background:#f1e6e1;cursor:zoom-in;transition:transform .2s}
 .galeria img:hover{transform:scale(1.02)}
 .galeria.alta img{aspect-ratio:4/5}
+.galeria.destaque{gap:20px}
+.galeria.destaque img{border:6px solid #fff;border-radius:22px;box-shadow:0 14px 34px rgba(120,50,60,.18)}
+.galeria.destaque img:hover{transform:translateY(-4px) scale(1.02)}
 
 /* Moldes */
 .moldes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -229,9 +232,7 @@ footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.8
 <!-- GALERIA -->
 <section class="logo-abaixo">
   <div class="wrap">
-    <h2>Bonecas que você vai aprender a fazer</h2>
-    <p class="sub">Peças delicadas, cheias de detalhes, que encantam quem vê — e que vendem muito bem.</p>
-    <div class="galeria">
+    <div class="galeria destaque">
       <img src="img/boneca-1.webp" data-fb="2026/03/2-1024x1024.webp" onerror="fb(this)" alt="Boneca de pano" loading="lazy">
       <img src="img/boneca-2.webp" data-fb="2026/03/Design-sem-nome-_5_-1-975x1024.webp" onerror="fb(this)" alt="Boneca de pano" loading="lazy">
       <img src="img/boneca-3.webp" data-fb="2026/03/Design-sem-nome-_3_-3-975x1024.webp" onerror="fb(this)" alt="Boneca de pano" loading="lazy">
