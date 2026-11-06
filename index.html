@@ -431,10 +431,8 @@ footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.8
 <script>
 document.getElementById('ano').textContent=new Date().getFullYear();
 
-/* Leva os parâmetros UTM do anúncio para o checkout */
-var q=location.search.slice(1);
+/* Evento de checkout no pixel (o rastreio do anúncio fica no script da Kirvano abaixo) */
 document.querySelectorAll('a.ck').forEach(function(a){
-  if(q) a.href+=(a.href.indexOf('?')>-1?'&':'?')+q;
   a.addEventListener('click',function(){
     try{fbq('track','InitiateCheckout',{value:+a.dataset.v,currency:'BRL'})}catch(e){}
   });
@@ -473,6 +471,71 @@ function rolar(){
   fixo.classList.toggle('on',scrollY>600&&!naPlanos);
 }
 addEventListener('scroll',rolar,{passive:true});rolar();
+</script>
+
+<!-- Rastreio do anúncio para a Kirvano -->
+<script>
+(function () {
+  // ad_id válido = só dígitos (o {{ad.id}} da Meta)
+  var VALID = /^\d{5,25}$/;
+  var KEY = "kirvano_ad";
+  var DAYS = 7;
+  var UTMS = ["utm_source", "utm_medium", "utm_campaign", "utm_term"];
+
+  // Aceita "123..." ou "Nome do anúncio|123..." — fica com o último pedaço só de dígitos
+  function extractId(value) {
+    if (!value) return null;
+    var parts = String(value).split("|");
+    for (var i = parts.length - 1; i >= 0; i--) {
+      var p = parts[i].trim();
+      if (VALID.test(p)) return p;
+    }
+    return null;
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var adId = extractId(params.get("utm_content")) || extractId(params.get("xcod"));
+
+  // Guarda o último anúncio clicado, para quem volta à página depois
+  try {
+    if (adId) {
+      localStorage.setItem(KEY, JSON.stringify({ v: adId, t: Date.now() }));
+    } else {
+      var saved = JSON.parse(localStorage.getItem(KEY) || "null");
+      if (saved && VALID.test(saved.v) && Date.now() - saved.t < DAYS * 864e5) {
+        adId = saved.v;
+      }
+    }
+  } catch (e) {}
+
+  function decorate(a) {
+    if (!a || !a.href || a.href.indexOf("kirvano.com") === -1) return;
+    try {
+      var url = new URL(a.href);
+      // A Kirvano entrega o ad_id ao painel em utm_content: vai só o número
+      if (adId) url.searchParams.set("utm_content", adId);
+      UTMS.forEach(function (k) {
+        var v = params.get(k);
+        if (v && !url.searchParams.get(k)) url.searchParams.set(k, v);
+      });
+      a.href = url.toString();
+    } catch (e) {}
+  }
+
+  function decorateAll() {
+    document.querySelectorAll('a[href*="kirvano.com"]').forEach(decorate);
+  }
+
+  // Na carga da página e de novo no clique (pega botões que surgem depois)
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", decorateAll);
+  } else {
+    decorateAll();
+  }
+  document.addEventListener("click", function (e) {
+    decorate(e.target.closest && e.target.closest("a"));
+  }, true);
+})();
 </script>
 </body>
 </html>
