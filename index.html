@@ -63,8 +63,9 @@ section{padding:72px 0}
 .hero .grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .hero h1{font-size:clamp(2.2rem,5.2vw,3.5rem);font-weight:800;color:#1d2e2c;line-height:1.12;text-align:center}
 .hero h1 em{font-style:normal;color:#e81072}
-.hero p.lead{font-size:1.12rem;color:#5d5a55;margin-bottom:24px;max-width:500px}
-.chips{display:flex;flex-wrap:wrap;gap:10px}
+.hero h1+.lead{margin-top:22px}
+.hero p.lead{font-size:1.12rem;color:#5d5a55;margin:22px auto 24px;max-width:500px;text-align:center}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .chips span{background:#fff;border:1px solid #e6ddd3;border-radius:99px;padding:8px 16px;font-size:.92rem;font-weight:600;color:#3d3a36}
 .checks{list-style:none;display:grid;gap:10px;margin-bottom:28px}
 .checks li{display:flex;gap:10px;align-items:flex-start;font-weight:700}
@@ -202,6 +203,7 @@ footer{text-align:center;padding:30px 20px 40px;color:var(--suave);font-size:.85
   .hero .wrap{padding:0 12px}
   .hero h1{font-size:2.15rem}
   .so-celular{display:block}
+  .so-pc{display:none!important}
   section{padding:56px 0}
   .hero .grid,.prof,.cert,.duas{grid-template-columns:1fr}
   .planos{grid-template-columns:minmax(0,353px);gap:44px}
@@ -229,6 +231,13 @@ footer{text-align:center;padding:30px 20px 40px;color:var(--suave);font-size:.85
   <div class="wrap grid">
     <div>
       <h1>Aprenda a criar bonecas lindas e conheça o método que vai te levar a <em>faturar de 3&nbsp;a&nbsp;4&nbsp;mil reais todo&nbsp;mês</em></h1>
+      <p class="lead so-pc">Moldes prontos e aulas explicadas passo a passo, para você terminar sua primeira boneca com confiança e um resultado de se apaixonar.</p>
+      <div class="chips so-pc">
+        <span>🎬 +70 videoaulas</span>
+        <span>✂️ Sem máquina de costura</span>
+        <span>📜 Certificado</span>
+        <span>📱 Assista pelo celular</span>
+      </div>
     </div>
     <div class="hero-img">
       <img src="img/hero.webp" data-fb="2026/09/ChatGPT-Image-8-de-set.-de-2026_-15_58_44-1-1024x827.webp" onerror="fb(this)" alt="Bonecas de pano feitas no curso" width="1024" height="827" fetchpriority="high">
