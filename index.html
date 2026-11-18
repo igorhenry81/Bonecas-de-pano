@@ -13,10 +13,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Pixel do Facebook (mesmo ID da página atual) -->
+<!-- Rastreamento (Sentinel) -->
 <script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1600694537415322');fbq('track','PageView');
+(function(s,e,n,t,i){s[n]=s[n]||function(){(s[n].q=s[n].q||[]).push(arguments)};
+var js=e.createElement('script');js.async=1;js.src=t+'?tid='+i;
+e.head.appendChild(js)})(window,document,'sentinel','https://trackk.bonecasdepano.com.br/api/t/tracker.js','3640a620-12ee-4666-8caf-b9c938386127');
 </script>
 
 <script>
@@ -454,12 +455,6 @@ footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.8
 <script>
 document.getElementById('ano').textContent=new Date().getFullYear();
 
-/* Evento de checkout no pixel (o rastreio do anúncio fica no script da Kirvano abaixo) */
-document.querySelectorAll('a.ck').forEach(function(a){
-  a.addEventListener('click',function(){
-    try{fbq('track','InitiateCheckout',{value:+a.dataset.v,currency:'BRL'})}catch(e){}
-  });
-});
 
 /* Popup ao clicar no Básico */
 var modal=document.getElementById('modal'),timer;
