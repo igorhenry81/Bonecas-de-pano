@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#b8475a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- Rastreamento (Sentinel) -->
 <script>
@@ -136,7 +136,27 @@ section{padding:72px 0}
 /* Planos */
 .planos{display:grid;grid-template-columns:repeat(2,minmax(0,353px));justify-content:center;gap:36px;margin:0 auto;align-items:start}
 .plano{display:flex;flex-direction:column;gap:18px;align-items:stretch}
-.plano img{width:100%;height:auto;border-radius:18px;box-shadow:0 16px 40px rgba(60,30,30,.16)}
+.pcard{background:#fff;border:2px solid #111;border-radius:22px;overflow:hidden;font-family:Poppins,Nunito,sans-serif;box-shadow:0 16px 40px rgba(60,30,30,.14)}
+.pcab{position:relative;margin:-2px -2px 0;padding:16px 18px 14px;border-radius:0 0 20px 20px;text-align:center;color:#fff}
+.basico .pcab{background:#0d0d0d}
+.vital .pcab{background:linear-gradient(110deg,#2236c9 0%,#5b3fd6 50%,#c75be6 100%);text-align:left;padding-right:96px}
+.ptit{font-weight:800;font-size:1.55rem;letter-spacing:.02em;text-transform:uppercase;line-height:1.1}
+.pest{color:#ffc61a;font-size:1.9rem;letter-spacing:.18em;line-height:1.2;margin-top:4px}
+.basico .pest{letter-spacing:.3em}
+.paval{font-size:.92rem;opacity:.85;font-weight:500}
+.pselo{position:absolute;right:12px;top:50%;transform:translateY(-50%) rotate(-8deg);width:78px;height:78px;border-radius:50%;background:#fff;border:5px solid #e3a92b;box-shadow:0 0 0 2px #fff,0 0 0 4px #c98a15;color:#3a2a10;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.pselo small{font-size:.42rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.pselo b{font-size:1.35rem;font-weight:800;margin-top:2px;background:#f3d27a;border-radius:50%;width:30px;height:30px;display:grid;place-items:center}
+.pselo span{font-size:.6rem;font-weight:700;margin:1px 0 2px}
+.pcorpo{padding:16px 20px 22px}
+.pacesso{color:#1ec25b;font-weight:800;font-size:1.75rem;text-align:center;padding-bottom:10px;border-bottom:3px dotted #222;margin:0 6px 14px;line-height:1.15}
+.plista{list-style:none;display:grid;gap:9px;margin:0 0 22px;color:#111;font-weight:500;font-size:1.02rem}
+.plista li{display:flex;align-items:center;gap:10px}
+.plista li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:#4cc04f;color:#fff;font-weight:900;font-size:.8rem;display:grid;place-items:center}
+.basico .plista li:not(.off){font-weight:700}
+.plista li.off{color:#777;text-decoration:line-through}
+.plista li.off::before{background:#6d6d6d}
+.ppreco{background:#1ec25b;color:#fff;font-weight:800;font-size:3rem;text-align:center;border-radius:14px;padding:10px 0;width:76%;margin:0 auto;line-height:1.1}
 .pag{display:flex;justify-content:center;gap:18px;margin-top:22px;color:var(--suave);font-size:.9rem;font-weight:700;flex-wrap:wrap}
 
 /* Garantia */
@@ -353,11 +373,69 @@ footer{text-align:center;padding:30px 20px 40px;color:var(--suave);font-size:.85
     <p class="sub">Pagamento único. Acesso liberado no seu e-mail logo após a compra.</p>
     <div class="planos">
       <div class="plano">
-        <img src="img/plano-basico.webp" alt="Plano Básico: acesso por 1 ano, 20 videoaulas e garantia de 30 dias, por R$ 10" width="353" height="1024" loading="lazy">
+        <div class="pcard basico">
+          <div class="pcab">
+            <div class="ptit">Plano Básico</div>
+            <div class="pest">★★★★</div>
+            <div class="paval">4.5 (1,564 avaliações)</div>
+            
+          </div>
+          <div class="pcorpo">
+            <div class="pacesso">Acesso por 1 Ano</div>
+            <ul class="plista">
+            <li>20 Videoaulas</li>
+            <li>Garantia de 30 Dias</li>
+            <li class="off">Mini curso Amigurumis</li>
+            <li class="off">Suporte VIP no WhatsApp</li>
+            <li class="off">Grupo VIP</li>
+            <li class="off">Apostilas</li>
+            <li class="off">Atualizações de novas Aulas</li>
+            <li class="off">Certificado</li>
+            <li class="off">Lista de Fornecedores</li>
+            <li class="off">Lista de Materiais</li>
+            <li class="off">Aula + Molde avô Gnomo</li>
+            <li class="off">Guia dos 5mil Mensais</li>
+            <li class="off">Planner</li>
+            <li class="off">100 Moldes Exclusivos</li>
+            <li class="off">7 Moldes de Roupinhas</li>
+            <li class="off">Bônus Especiais</li>
+            </ul>
+            <div class="ppreco">R$10</div>
+          </div>
+        </div>
         <button class="btn ghost full" id="btnBasico" type="button">Quero o Básico</button>
       </div>
       <div class="plano">
-        <img src="img/plano-vitalicio.webp" alt="Plano Vitalício: 70 videoaulas, moldes, bônus, suporte e acesso vitalício, por R$ 37" width="353" height="1024" loading="lazy">
+        <div class="pcard vital">
+          <div class="pcab">
+            <div class="ptit">Plano Vitalício</div>
+            <div class="pest">★★★★★</div>
+            <div class="paval">4.5 (1,564 avaliações)</div>
+            <div class="pselo"><small>Compra garantida</small><b>30</b><span>Dias</span><small>100% seguro</small></div>
+          </div>
+          <div class="pcorpo">
+            <div class="pacesso">Acesso Vitalício</div>
+            <ul class="plista">
+            <li>70 Videoaulas + Moldes</li>
+            <li>Garantia de 30 Dias</li>
+            <li>Mini curso Amigurumis</li>
+            <li>Suporte VIP no WhatsApp</li>
+            <li>Grupo VIP</li>
+            <li>Apostilas</li>
+            <li>Atualizações de novas Aulas</li>
+            <li>Certificado</li>
+            <li>Lista de Fornecedores</li>
+            <li>Lista de Materiais</li>
+            <li>Aula + Molde avô Gnomo</li>
+            <li>Guia dos 5mil Mensais</li>
+            <li>Planner</li>
+            <li>100 Moldes Exclusivos</li>
+            <li>7 Moldes de Roupinhas</li>
+            <li>Bônus Especiais</li>
+            </ul>
+            <div class="ppreco">R$37</div>
+          </div>
+        </div>
         <a class="btn full ck" data-v="37" href="https://pay.kirvano.com/dad8aac4-d567-4c05-9198-59341f856875">Quero o Completo →</a>
       </div>
     </div>
