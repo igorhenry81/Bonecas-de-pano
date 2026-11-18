@@ -88,12 +88,14 @@ section{padding:72px 0}
 .galeria.destaque img{border:6px solid #fff;border-radius:22px;box-shadow:0 14px 34px rgba(120,50,60,.18)}
 .galeria.destaque img:hover{transform:translateY(-4px) scale(1.02)}
 
-/* Moldes */
-.moldes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.molde{background:#fff;border:2px dashed #e3c6c0;border-radius:var(--raio);padding:26px 22px;position:relative}
-.molde .ic{font-size:1.9rem;margin-bottom:8px}
-.molde h3{font-size:1.15rem;margin-bottom:6px}
-.molde p{color:var(--suave);font-size:.95rem}
+/* Moldes (carrossel) */
+.carrossel{position:relative;max-width:980px;margin:0 auto}
+.trilho{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 4px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
+.trilho::-webkit-scrollbar{display:none}
+.trilho img{flex:0 0 calc((100% - 36px)/3);height:auto;aspect-ratio:447/632;object-fit:cover;scroll-snap-align:start;background:#fff;border:6px solid #fff;border-radius:16px;box-shadow:0 10px 28px rgba(120,50,60,.14);cursor:zoom-in;user-select:none;-webkit-user-drag:none}
+.seta{position:absolute;top:45%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid var(--linha);background:#fff;color:var(--rosa);font-size:1.8rem;line-height:1;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.12);z-index:2}
+.seta.esq{left:-22px}.seta.dir{right:-22px}
+.arraste{text-align:center;color:var(--suave);font-size:.9rem;font-weight:700;margin-top:6px}
 
 /* Para quem */
 .duas{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -196,7 +198,8 @@ footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.8
   .numeros{grid-template-columns:repeat(2,1fr);margin-top:0}
   .galeria{grid-template-columns:repeat(2,1fr)}
   .galeria.destaque{grid-template-columns:1fr;max-width:420px;margin:0 auto}
-  .moldes{grid-template-columns:1fr}
+  .trilho img{flex-basis:78%}
+  .seta{display:none}
   .depos{grid-template-columns:repeat(5,70%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
   .depos img{scroll-snap-align:center}
   .prof h2,.cert h2,.garantia h2{text-align:center}
@@ -266,11 +269,17 @@ footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.8
     <span class="tag" style="display:table;margin:0 auto 14px">🎁 Bônus</span>
     <h2>100 moldes prontos para você imprimir</h2>
     <p class="sub">Nada de desenhar do zero. É só imprimir, recortar e começar.</p>
-    <div class="moldes">
-      <div class="molde"><div class="ic">🖨️</div><h3>Imprima em casa</h3><p>Moldes em tamanho real, prontos para imprimir em folha A4 comum.</p></div>
-      <div class="molde"><div class="ic">✂️</div><h3>Corpo, rosto e cabelo</h3><p>Todas as partes da boneca, com marcações de costura e encaixe.</p></div>
-      <div class="molde"><div class="ic">👗</div><h3>Roupas e acessórios</h3><p>Moldes das roupinhas e sapatinhos para montar coleções completas.</p></div>
+    <div class="carrossel">
+      <button class="seta esq" type="button" aria-label="Anterior">‹</button>
+      <div class="trilho" id="trilhoMoldes">
+        <img src="img/molde-1.jpg" alt="Molde demonstrativo 1" loading="lazy" width="447" height="632">
+        <img src="img/molde-2.jpg" alt="Molde demonstrativo 2" loading="lazy" width="447" height="632">
+        <img src="img/molde-3.jpg" alt="Molde demonstrativo 3" loading="lazy" width="447" height="632">
+        <img src="img/molde-4.jpg" alt="Molde demonstrativo 4" loading="lazy" width="447" height="632">
+      </div>
+      <button class="seta dir" type="button" aria-label="Próximo">›</button>
     </div>
+    <p class="arraste">← Arraste para o lado para ver mais →</p>
   </div>
 </section>
 
@@ -476,10 +485,23 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){fechar();lb
 
 /* Ampliar fotos */
 var lb=document.getElementById('lb'),lbi=lb.querySelector('img');
-document.querySelectorAll('.galeria img,.depos img,.cert img').forEach(function(i){
+document.querySelectorAll('.galeria img,.depos img,.cert img,.trilho img').forEach(function(i){
   i.addEventListener('click',function(){lbi.src=i.currentSrc||i.src;lb.classList.add('on')});
 });
 lb.addEventListener('click',function(){lb.classList.remove('on')});
+
+/* Carrossel dos moldes: setas e arrastar com o mouse */
+(function(){
+  var t=document.getElementById('trilhoMoldes');if(!t)return;
+  var passo=function(){return t.querySelector('img').offsetWidth+18};
+  document.querySelector('.seta.esq').addEventListener('click',function(){t.scrollBy({left:-passo()})});
+  document.querySelector('.seta.dir').addEventListener('click',function(){t.scrollBy({left:passo()})});
+  var down=false,x0=0,s0=0,moveu=false;
+  t.addEventListener('mousedown',function(e){down=true;moveu=false;x0=e.pageX;s0=t.scrollLeft;t.style.scrollSnapType='none';t.style.scrollBehavior='auto'});
+  addEventListener('mousemove',function(e){if(!down)return;var d=e.pageX-x0;if(Math.abs(d)>5)moveu=true;t.scrollLeft=s0-d});
+  addEventListener('mouseup',function(){if(!down)return;down=false;t.style.scrollSnapType='';t.style.scrollBehavior=''});
+  t.addEventListener('click',function(e){if(moveu){e.stopPropagation();e.preventDefault()}},true);
+})();
 
 /* Botão fixo no celular: aparece depois do topo e some na seção de planos */
 var fixo=document.getElementById('fixo'),planos=document.getElementById('planos');
