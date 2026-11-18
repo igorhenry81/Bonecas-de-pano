@@ -131,19 +131,9 @@ section{padding:72px 0}
 .depos img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top;border-radius:16px;border:1px solid var(--linha);cursor:zoom-in;background:#f1e6e1}
 
 /* Planos */
-.planos{display:grid;grid-template-columns:1fr 1.12fr;gap:24px;max-width:860px;margin:0 auto;align-items:center}
-.plano{background:#fff;border:2px solid var(--linha);border-radius:26px;padding:30px 26px;text-align:center}
-.plano h3{font-size:1.4rem}
-.plano .preco{font-family:Fraunces,serif;font-size:3rem;line-height:1;margin:14px 0 4px}
-.plano .preco small{font-size:1.1rem;vertical-align:super}
-.plano .riscado{color:var(--suave);font-size:.95rem}
-.plano ul{list-style:none;text-align:left;margin:20px 0 24px;display:grid;gap:9px;font-size:.96rem}
-.plano li.sim::before{content:"✓ ";color:var(--verde);font-weight:900}
-.plano li.nao{color:#a99}
-.plano li.nao::before{content:"✕ ";color:#c4504a;font-weight:900}
-.plano.top{border:3px solid var(--rosa);box-shadow:0 20px 50px rgba(184,71,90,.2);position:relative;padding-top:42px}
-.plano.top .fita{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--rosa);color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.06em;padding:7px 18px;border-radius:99px;white-space:nowrap}
-.plano.top .preco{color:var(--rosa-esc);font-size:3.6rem}
+.planos{display:grid;grid-template-columns:repeat(2,minmax(0,353px));justify-content:center;gap:36px;margin:0 auto;align-items:start}
+.plano{display:flex;flex-direction:column;gap:18px;align-items:stretch}
+.plano img{width:100%;height:auto;border-radius:18px;box-shadow:0 16px 40px rgba(60,30,30,.16)}
 .pag{display:flex;justify-content:center;gap:18px;margin-top:22px;color:var(--suave);font-size:.9rem;font-weight:700;flex-wrap:wrap}
 
 /* Garantia */
@@ -194,7 +184,8 @@ footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.8
 
 @media (max-width:860px){
   section{padding:56px 0}
-  .hero .grid,.prof,.cert,.duas,.planos{grid-template-columns:1fr}
+  .hero .grid,.prof,.cert,.duas{grid-template-columns:1fr}
+  .planos{grid-template-columns:minmax(0,353px);gap:44px}
   .hero-img{max-width:460px;margin:8px auto 0}
   .numeros{grid-template-columns:repeat(2,1fr);margin-top:0}
   .galeria{grid-template-columns:repeat(2,1fr);gap:10px;margin:0 -10px}
@@ -369,35 +360,11 @@ footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.8
     <p class="sub">Pagamento único. Acesso liberado no seu e-mail logo após a compra.</p>
     <div class="planos">
       <div class="plano">
-        <h3>Plano Básico</h3>
-        <div class="preco"><small>R$</small>10</div>
-        <div class="riscado">pagamento único</div>
-        <ul>
-          <li class="sim">Curso Bonecas de Pano (+70 aulas)</li>
-          <li class="sim">Certificado de conclusão</li>
-          <li class="nao">Bônus: 100 moldes exclusivos</li>
-          <li class="nao">Atualizações com novas aulas</li>
-          <li class="nao">Materiais extras e bônus</li>
-          <li class="nao">Acesso vitalício</li>
-        </ul>
+        <img src="img/plano-basico.webp" alt="Plano Básico: acesso por 1 ano, 20 videoaulas e garantia de 30 dias, por R$ 10" width="353" height="1024" loading="lazy">
         <button class="btn ghost full" id="btnBasico" type="button">Quero o Básico</button>
       </div>
-      <div class="plano top">
-        <div class="fita">⭐ MAIS ESCOLHIDO</div>
-        <h3>Plano Completo Vitalício</h3>
-        <div class="riscado">de <s>R$ 299</s> por</div>
-        <div class="preco"><small>R$</small>37</div>
-        <div class="riscado">pagamento único</div>
-        <ul>
-          <li class="sim">Curso Bonecas de Pano (+70 aulas)</li>
-          <li class="sim">Certificado de conclusão</li>
-          <li class="sim"><b>Acesso vitalício</b></li>
-          <li class="sim">Bônus: 100 moldes exclusivos</li>
-          <li class="sim">Atualizações com novas aulas</li>
-          <li class="sim">Suporte VIP no WhatsApp + Grupo VIP</li>
-          <li class="sim">Bônus: Mini curso de Amigurumi</li>
-          <li class="sim">Bônus: Planner + Vovô Gnomo + Fornecedores</li>
-        </ul>
+      <div class="plano">
+        <img src="img/plano-vitalicio.webp" alt="Plano Vitalício: 70 videoaulas, moldes, bônus, suporte e acesso vitalício, por R$ 37" width="353" height="1024" loading="lazy">
         <a class="btn full ck" data-v="37" href="https://pay.kirvano.com/dad8aac4-d567-4c05-9198-59341f856875">Quero o Completo →</a>
       </div>
     </div>
