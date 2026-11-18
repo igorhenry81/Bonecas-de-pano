@@ -78,6 +78,7 @@ section{padding:72px 0}
 .numeros div{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:18px 10px;text-align:center;font-weight:700;font-size:.9rem;color:var(--suave)}
 .numeros b{display:block;font-family:Fraunces,serif;font-size:1.6rem;color:var(--tinta)}
 
+.so-celular{display:none}
 /* Galerias */
 .logo-abaixo{padding-top:40px}
 .galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -183,6 +184,7 @@ footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.8
 .caixa a.cont{color:var(--suave);font-size:.9rem;font-weight:700}
 
 @media (max-width:860px){
+  .so-celular{display:block}
   section{padding:56px 0}
   .hero .grid,.prof,.cert,.duas{grid-template-columns:1fr}
   .planos{grid-template-columns:minmax(0,353px);gap:44px}
@@ -341,7 +343,7 @@ footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.8
 <section>
   <div class="wrap">
     <h2>O que as alunas estão dizendo</h2>
-    <p class="sub">← Arraste para o lado para ver mais →</p>
+    <p class="sub so-celular">← Arraste para o lado para ver mais →</p>
     <div class="depos">
       <img src="img/depo-1.jpeg" data-fb="2026/05/WhatsApp-Image-2026-05-12-at-00.55.54-472x1024.jpeg" onerror="fb(this)" alt="Depoimento de aluna" loading="lazy">
       <img src="img/depo-2.webp" data-fb="2026/03/WhatsApp-Image-2025-07-19-at-18.43.27.jpeg.webp" onerror="fb(this)" alt="Depoimento de aluna" loading="lazy">
