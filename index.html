@@ -156,12 +156,8 @@ section{padding:72px 0}
 .final{background:var(--rosa);color:#fff;text-align:center}
 .final h2{color:#fff}
 .final p{opacity:.9;max-width:560px;margin:0 auto 26px}
-footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.85rem}
+footer{text-align:center;padding:30px 20px 40px;color:var(--suave);font-size:.85rem}
 
-/* CTA fixo no celular */
-.fixo{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,253,249,.96);backdrop-filter:blur(6px);border-top:1px solid var(--linha);display:none;z-index:40;transform:translateY(110%);transition:transform .25s}
-.fixo.on{transform:none}
-.fixo .btn{width:100%;padding:15px;font-size:1rem}
 
 /* Lightbox */
 .lb{position:fixed;inset:0;background:rgba(20,10,10,.88);display:none;align-items:center;justify-content:center;z-index:60;padding:20px;cursor:zoom-out}
@@ -200,7 +196,6 @@ footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.8
   .prof h2,.cert h2,.garantia h2{text-align:center}
   .prof,.cert{text-align:center}
   .garantia{flex-direction:column;text-align:center}
-  .fixo{display:block}
   .btn{width:100%;padding:17px 20px}
 }
 </style>
@@ -405,7 +400,6 @@ footer{text-align:center;padding:30px 20px 100px;color:var(--suave);font-size:.8
 
 <footer>© <span id="ano"></span> Curso Bonecas de Pano · Todos os direitos reservados</footer>
 
-<div class="fixo" id="fixo"><a href="#planos" class="btn">Quero aprender · a partir de R$ 10</a></div>
 
 <div class="lb" id="lb"><img alt=""></div>
 
@@ -472,14 +466,6 @@ lb.addEventListener('click',function(){lb.classList.remove('on')});
   t.addEventListener('click',function(e){if(moveu){e.stopPropagation();e.preventDefault()}},true);
 })();
 
-/* Botão fixo no celular: aparece depois do topo e some na seção de planos */
-var fixo=document.getElementById('fixo'),planos=document.getElementById('planos');
-function rolar(){
-  var r=planos.getBoundingClientRect();
-  var naPlanos=r.top<innerHeight&&r.bottom>0;
-  fixo.classList.toggle('on',scrollY>600&&!naPlanos);
-}
-addEventListener('scroll',rolar,{passive:true});rolar();
 </script>
 
 <!-- Rastreio do anúncio para a Kirvano -->
