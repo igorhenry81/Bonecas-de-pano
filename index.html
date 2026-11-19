@@ -13,36 +13,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Proteções para o Sentinel:
-     1) não deixa o Sentinel trocar o endereço da página enquanto a pessoa está saindo para o checkout (isso cancelava a ida para a Kirvano)
-     2) impede o pixel da Meta de contar um PageView novo cada vez que o Sentinel troca o endereço -->
-<script>
-(function(w,d){
-  var saindo=false,timer;
-  function marca(e){
-    var a=e.target&&e.target.closest&&e.target.closest('a[href]');
-    if(a&&a.host&&a.host!==location.host){
-      saindo=true;clearTimeout(timer);timer=setTimeout(function(){saindo=false},4000);
-    }
-  }
-  d.addEventListener('click',marca,true);
-  w.addEventListener('pageshow',function(){saindo=false});
-  try{
-    var H=w.History&&w.History.prototype,orig=H&&H.replaceState;
-    if(orig){
-      var nova=function(){if(saindo)return;return orig.apply(this,arguments)};
-      H.replaceState=nova;
-    }
-  }catch(e){}
-  var atual;
-  try{
-    Object.defineProperty(w,'fbq',{configurable:true,
-      get:function(){return atual},
-      set:function(v){if(v&&typeof v==='function'){try{v.disablePushState=true}catch(e){}}atual=v}
-    });
-  }catch(e){}
-})(window,document);
-</script>
 <!-- Rastreamento (Sentinel) -->
 <script>
 (function(s,e,n,t,i){s[n]=s[n]||function(){(s[n].q=s[n].q||[]).push(arguments)};
